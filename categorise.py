@@ -112,7 +112,7 @@ cars_mat = Path('./cars_annos.mat')
 #make folders
 output_paths = mk_output_subdirs(output_parent_folder)
 
-#make class_names series and annotations df
+#make class_names df and annotations df
 class_names = mk_class_names_df(cars_mat)
 annotations = mk_annotations_df(cars_mat, class_names)
 
