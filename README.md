@@ -9,11 +9,16 @@ This script only purpose is to categorise the images according to their type pro
 ├── cars_annos.mat
 ├── categorise.py
 ```
+
 2. Install necessary packages (use pip if not sure)
     * conda: ``` conda install -c conda-forge scipy pandas numpy opencv tqdm ```
     * pip: ``` pip install scipy pandas numpy opencv-python tqdm ```
+
 3. Open a terminal/cmd in the folder containing the files and run the following command
-``` python categorise.py ```
+``` 
+python categorise.py 
+```
+
 4. A new folder named cropped should appear and contain all the categorised images
 ```
 .
