@@ -90,7 +90,7 @@ def mk_annotations_df(mat_path, class_names):
     annotations['type'] = annotations['class'].apply(lambda img_class: class_names.loc[img_class, 'class_type'])
     
     #convert each path str to path obj
-    annotations['relative_im_path'] = annotations.relative_im_path.apply(lambda img_path: Path(img_path))
+    annotations['relative_im_path'] = annotations.relative_im_path.apply(Path)
     
     #drop no longer needed cols
     annotations.drop(['class','test'], axis = 1, inplace = True)
