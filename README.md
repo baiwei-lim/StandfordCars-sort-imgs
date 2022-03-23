@@ -2,12 +2,12 @@
 This script only purpose is to categorise the images according to their type provided in the dataset. All images dataset was used instead of the split train/test dataset.
 
 ## Instructions
-1. Place categorise.py in a folder with the extracted dataset folder and mat file
+1. Place standford_categorise.py in a folder with the extracted dataset folder and mat file
 ```
 .
 ├── car_ims
 ├── cars_annos.mat
-├── categorise.py
+├── standford_categorise.py
 ```
 
 2. Install necessary packages (use pip if not sure)
@@ -16,7 +16,7 @@ This script only purpose is to categorise the images according to their type pro
 
 3. Open a terminal/cmd in the folder containing the files and run the following command
 ``` 
-python categorise.py 
+python standford_categorise.py 
 ```
 
 4. A new folder named cropped should appear and contain all the categorised images
@@ -24,6 +24,6 @@ python categorise.py
 .
 ├── car_ims
 ├── cars_annos.mat
-├── categorise.py
+├── standford_categorise.py
 ├── cropped
 ```
