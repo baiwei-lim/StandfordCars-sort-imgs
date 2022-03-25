@@ -105,18 +105,21 @@ def img_extract(img_path, xmin, ymin, xmax, ymax, car_type, output_subdirs):
     output_folder = output_subdirs[car_type]
     cv2.imwrite(str(output_folder.joinpath(f'{img_path.name}')), cropped_img)
 
-#define paths
-output_parent_folder = Path('./cropped')
-cars_mat = Path('./cars_annos.mat')
-
-#make folders
-output_paths = mk_output_subdirs(output_parent_folder)
-
-#make class_names df and annotations df
-class_names = mk_class_names_df(cars_mat)
-annotations = mk_annotations_df(cars_mat, class_names)
-
-#start
-tqdm.pandas(desc='Categorising')
-annotations.progress_apply(lambda row: img_extract(row[0], row[1], row[2], row[3], row[4], row[5], output_paths)
-                           ,axis=1)
+def main():
+    #define paths
+    output_parent_folder = Path('./cropped')
+    cars_mat = Path('./cars_annos.mat')
+    
+    #make folders
+    output_paths = mk_output_subdirs(output_parent_folder)
+    
+    #make class_names df and annotations df
+    class_names = mk_class_names_df(cars_mat)
+    annotations = mk_annotations_df(cars_mat, class_names)
+    
+    #start
+    tqdm.pandas(desc='Categorising')
+    annotations.progress_apply(lambda row: img_extract(row[0], row[1], row[2], row[3], row[4], row[5], output_paths)
+                               ,axis=1)
+if __name__ == '__main__':
+    main()
