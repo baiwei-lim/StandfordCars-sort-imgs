@@ -87,7 +87,9 @@ def mk_annotations_df(mat_path, class_names):
     annotations = pd.DataFrame(mat['annotations']) 
  
     #get type for each img
-    annotations['type'] = annotations['class'].apply(lambda img_class: class_names.loc[img_class, 'class_type'])
+    annotations = annotations.merge(class_names['class_type'].rename('type'), #merge class_type column only and rename to type
+                                    left_on='class',  #use class column from annotations
+                                    right_index=True) #use index from class_names
     
     #convert each path str to path obj
     annotations['relative_im_path'] = annotations.relative_im_path.apply(Path)
